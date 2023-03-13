@@ -1,0 +1,12 @@
+<h3>Создаем в компоненте логику + Валидация</h3>
+<div>
+  <form [formGroup]="myForm" (ngSubmit)="submitForm()">
+    <div>Имя: <input formControlName="name"/></div>
+    <div>Возраст: <input formControlName="age"/></div>
+<!--    следит в фокусе поле или нет- && myForm.touched-->
+    <div *ngIf="myForm.invalid && myForm.touched" style="color: brown">должно быть число</div>
+    <div>Профессия: <input formControlName="profession"/></div>
+<!--    Блакируем кнопку если не ввалидно-->
+    <button [disabled]="myForm.invalid" type="submit">отправить</button>
+  </form>
+</div>

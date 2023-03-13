@@ -1,0 +1,18 @@
+<!--1) привязка к ворме через Имя #Имя="ngForm"-->
+<!--2) (ngSubmit)="submitForm(myForm)"-->
+<!--3) <button type="submit">-->
+<!--4) создаем функцию submitForm(myForm) в компоненте-->
+<!--5) Привязывает input значения-задаем Имя <input name="name"/> и пишем ngModel <input name="name" ngModel/>-->
+<!--6) Очистить  <button (click)="myForm.reset()">Очистить</button>-->
+<h3>Шаблонные формы + Валидация</h3>
+<div>
+  <form #myForm="ngForm" (ngSubmit)="submitForm(myForm)">
+    <div>Имя: <input name="name" ngModel/></div>
+
+    <div>Возраст: <input name="age" required pattern="^[0-9]+$" ngModel/></div>
+    <div *ngIf="myForm.invalid && myForm.touched" style="color: brown">Должно быть число</div>
+    <div>Профессия: <input name="profession" ngModel/></div>
+    <button [disabled]="myForm.invalid" type="submit">отправить</button>
+    <button (click)="myForm.reset()">Очистить</button>
+  </form>
+</div>

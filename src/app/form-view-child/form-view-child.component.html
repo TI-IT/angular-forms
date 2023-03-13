@@ -1,0 +1,16 @@
+<!--1) привязка к ворме через Имя #Имя="ngForm"-->
+<!--2) (ngSubmit)="submitForm(myForm)"-->
+<!--3) <button type="submit">-->
+<!--4) создаем функцию submitForm() в компоненте-->
+<!--5) Привязывает input значения-задаем Имя <input name="name"/> и пишем ngModel <input name="name" ngModel/>-->
+<!--6) Очистить  <button (click)="myForm.reset()">Очистить</button>-->
+
+<div>
+  <form #myForm="ngForm" (ngSubmit)="submitForm()">
+    <div>Имя: <input name="name" ngModel/></div>
+    <div>Возраст: <input name="age" ngModel/></div>
+    <div>Профессия: <input name="profession" ngModel/></div>
+    <button type="submit">отправить</button>
+    <button (click)="myForm.reset()">Очистить</button>
+  </form>
+</div>

@@ -1,0 +1,9 @@
+<h3>Создаем в компоненте логику немного по другому</h3>
+<div>
+  <form [formGroup]="myForm" (ngSubmit)="submitForm()">
+    <div>Имя: <input formControlName="name"/></div>
+    <div>Возраст: <input formControlName="age"/></div>
+    <div>Профессия: <input formControlName="profession"/></div>
+    <button type="submit">отправить</button>
+  </form>
+</div>
