@@ -1,9 +1,45 @@
-<nav class="navbar bg-body-tertiary">
-  <div class="container-fluid">
-    <a class="navbar-brand">Navbar</a>
-    <form class="d-flex" role="search">
-      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success" type="submit">Search</button>
-    </form>
-  </div>
-</nav>
+
+
+<div class="col-xs-12">
+  <form #myForm="ngForm" (ngSubmit)="submitForm(myForm)">
+    <nav class="navbar bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand">Navbar</a>
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+    </nav>
+
+    <div>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th *ngFor="let title of itemsTitles">{{title}}</th>
+            <td><button class="btn btn-primary">Add Category</button></td>
+          </tr>
+        </thead>
+
+        <tbody *ngFor="let item of localItems">
+        <tr>
+          <td title="Category">
+            <input type="text" class="form-control" name="cat{{item.id}}" #Category="ngModel" ngModel
+            required=""/>
+          </td>
+          <td colspan="5"></td>
+          <td title="Add Item / Remove Category">
+          <button class="btn btn-primary">Add Item</button>
+          <button class="btn btn-danger">Remove</button>
+          </td>
+        </tr>
+
+        </tbody>
+
+        <tfoot>
+
+        </tfoot>
+      </table>
+    </div>
+  </form>
+</div>
