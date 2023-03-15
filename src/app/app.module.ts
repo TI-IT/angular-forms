@@ -10,6 +10,7 @@ import { FormReactiveFormsModuleComponent } from './form-reactive-forms-module/f
 import { FormFormBuilderComponent } from './form-form-builder/form-form-builder.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormAppComponent } from './form-app/form-app.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { FormAppComponent } from './form-app/form-app.component';
     FormNgFormParametriesComponent,
     FormReactiveFormsModuleComponent,
     FormFormBuilderComponent,
-    FormAppComponent
+    FormAppComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

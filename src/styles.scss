@@ -2,3 +2,7 @@
 
 /* Importing Bootstrap SCSS file. */
 @import 'bootstrap/scss/bootstrap';
+
+:host-context(.foo)div {
+  border: 10px solid gold;
+}
