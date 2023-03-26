@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {NgForm} from "@angular/forms";
+import {isNumber} from "@ng-bootstrap/ng-bootstrap/util/util";
 
 interface IsalesTaxArray {
   id: number,
@@ -66,7 +67,7 @@ export class FormAppComponent {
   }
 
   submitForm(myForm: NgForm) {
-    // console.log(myForm.value)
+    console.log(myForm.value)
   }
 
   addCategory() {
@@ -108,12 +109,31 @@ export class FormAppComponent {
   }
 
   removeItemFromCategory(catId: number, itemId: number){
+    console.log(catId )
+    console.log(itemId )
     this.localItems.find((item)=>{
-      const idx = item['items'].findIndex((item) => item.id === item.id);
+      const idx = item['items'].findIndex((item) => item.id === itemId);
       if(idx !== -1){
         item['items'].splice(idx, 1)
       }
     })
+  }
+
+  getTotalAmount(isAmount: boolean){
+    let total = 0;
+
+    this.localItems.forEach((item) => {
+      total = item.items.reduce((acc, curr) => {
+        if( isAmount ){
+          return +acc + +curr.amount
+        }
+        return +acc + +curr.salesTax.value
+      }, total);
+    });
+
+    if (isAmount) this.totalAmount = total;
+    else this.totalTaxes = total;
+
   }
 
 }

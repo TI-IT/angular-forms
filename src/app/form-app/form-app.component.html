@@ -70,7 +70,9 @@
                    type="text"
                    class="form-control"
                    name="amount{{items.id}}"
+
                    [(ngModel)]="items.amount" required
+                   (ngModelChange)="getTotalAmount(true)"
                    pattern="^[0-9]+$"
                    #amount="ngModel"
             />
@@ -80,7 +82,9 @@
                     type="text"
                     class="form-control"
                     name="salesTax{{items.id}}"
+
                     [(ngModel)]="items.salesTax" required
+                    (ngModelChange)="getTotalAmount(false)"
                     #salesTax="ngModel"
             >
               <option *ngFor="let tax of salesTaxArray" [ngValue]="tax">
@@ -107,9 +111,9 @@
           <td title="Tottal">
             <strong>Total</strong>
           </td>
-          <td title="Amount">1</td>
-          <td title="Sales Tax">1</td>
-          <td title="Tolal">1</td>
+          <td title="Amount">{{totalAmount | currency}}</td>
+          <td title="Sales Tax">{{totalTaxes | currency}}</td>
+          <td title="Tolal">{{totalAmount + totalTaxes | currency}}</td>
 
         </tr>
         </tfoot>
